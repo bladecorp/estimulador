@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:cxf="http://cxf.apache.org/core"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:simple="http://cxf.apache.org/simple"
+	xsi:schemaLocation="http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+		http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+		http://cxf.apache.org/simple http://cxf.apache.org/schemas/simple.xsd">
+
+	<!-- *********** INICIO SECCION WEB SERVICE CXF  ********** -->
+	
+	<jaxws:server id="servicioWS"
+		serviceClass="com.sysdt.estimuladorapp.ws.WebServiceInt"
+		address="/procesarPeticion">
+		<jaxws:serviceBean>
+			<bean class="com.sysdt.estimuladorapp.ws.WebServiceImpl" />
+		</jaxws:serviceBean>
+	</jaxws:server>
+
+	<cxf:bus>
+		<cxf:features>
+			<cxf:logging />
+		</cxf:features>
+	</cxf:bus>
+		
+	<!-- *********** INICIO SECCION WEB SPRING CORE MYBATIS  ********** -->
+
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- enable component scanning (beware that this does not enable mapper 
+		scanning!) -->
+	<context:component-scan base-package="com.sysdt.estimuladorapp" />
+
+	<!-- enable autowire -->
+	<context:annotation-config />
+
+	<!-- enable transaction demarcation with annotations -->
+	<!-- <tx:annotation-driven proxy-target-class="true" /> -->
+	<tx:annotation-driven />
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.sysdt.estimuladorapp.dao" />
+	</bean>
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="mapperLocations" value="classpath:com/sysdt/estimuladorapp/xml/*.xml" />
+	</bean>
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="com.mysql.jdbc.Driver" />
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/base_estimulador" />
+		<property name="user" value="root" />
+		<property name="password" value="5438" />
+	</bean>
+
+</beans>

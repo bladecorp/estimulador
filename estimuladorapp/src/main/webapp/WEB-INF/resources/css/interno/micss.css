@@ -1,0 +1,43 @@
+.filaActiva{
+	color:white !important;
+	background-color: #394D5F !important;
+}
+.dataTables_filter input { 
+	width: 70px !important; 
+/* 	margin-left: -50px !important; */
+}
+
+input{
+	text-transform: uppercase;
+}
+
+.bordeRojo{
+	border-color: red;
+}
+
+
+.ui-autocomplete-loading {
+    background: transparent url("/estimuladorapp/resources/imgs/reload.gif") right center no-repeat;
+  }
+
+.fondoRojo{
+	color: white;
+	background-color: #E96152;
+}
+
+.fondoVerde{
+	color: white;
+	background-color: #26B99A;
+}
+
+.tituloKnob{
+	font-size: 20px;
+}
+
+li.sesion{
+	background-color: #D62C1A;
+}
+
+#logout:hover{
+	background-color: #800040;
+}

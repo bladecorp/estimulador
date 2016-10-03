@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<MensajesPushBots>
+	<Titulo>Titulo Mensaje</Titulo>
+	<Mensaje>Su medico le ha enviado una estimulacion</Mensaje>
+	
+	<!-- NO MODIFICAR (Informacion confidencial de Pushbots) -->
+	<AppId>571931814a9efab3868b4567</AppId>
+	<AppSecret>75e01580abac8547e7ddbe8ad5f2dea1</AppSecret>
+	<!-- AppId Pruebas: 5717f3a04a9efa8e3d8b4567 -->
+	<!-- AppSecret Pruebas: f0709514e65e8cbba7d76178e2e38d6a -->
+	<!-- AppId Real:  571931814a9efab3868b4567 -->
+	<!-- AppSecret Real: 75e01580abac8547e7ddbe8ad5f2dea1 -->
+</MensajesPushBots>
