@@ -3,8 +3,11 @@ package com.sysdt.estimuladorapp.ws;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sysdt.estimuladorapp.dto.HistoricoDTO;
 import com.sysdt.estimuladorapp.dto.PacienteEstimDTO;
 import com.sysdt.estimuladorapp.enums.RespuestaWS;
+import com.sysdt.estimuladorapp.exceptions.ExcepcionHistorico;
+import com.sysdt.estimuladorapp.service.interfaces.HistoricoService;
 import com.sysdt.estimuladorapp.service.interfaces.UsuarioService;
 
 @Service
@@ -12,6 +15,9 @@ public class WebServiceImpl implements WebServiceInt{
 	
 	@Autowired
 	private UsuarioService usuarioService;
+	
+	@Autowired
+	private HistoricoService historicoService;
 
 	@Override
 	public PacienteEstimDTO obtenerPacienteEstim(String usuario, String password) {
@@ -34,6 +40,9 @@ public class WebServiceImpl implements WebServiceInt{
 		}
 	}
 
-	
+	@Override
+	public boolean registrarEventoHistorico(HistoricoDTO historicoDTO) throws ExcepcionHistorico {
+		return historicoService.registrarEventoHistorico(historicoDTO);
+	}
 
 }
