@@ -19,9 +19,9 @@
 		<apache-cxf.version>3.0.3</apache-cxf.version>
 		<jackson.version>2.5.1</jackson.version>
 		<apache-http.version>4.5</apache-http.version>
-<!-- 		<servlets.version>3.0.1</servlets.version> -->
+		<servlets.version>3.0.1</servlets.version>
 		<jstl.version>1.2</jstl.version>
-<!-- 		<jsp.version>2.2</jsp.version> -->
+		<jsp.version>2.2</jsp.version>
 		<java.version>1.6</java.version>
 	</properties>
 	
@@ -129,16 +129,18 @@
 		<version>${jstl.version}</version>
 	</dependency>
 
-<!-- 	<dependency> -->
-<!-- 		<groupId>javax.servlet</groupId> -->
-<!-- 		<artifactId>javax.servlet-api</artifactId> -->
-<!-- 		<version>${servlets.version}</version> -->
-<!-- 	</dependency> -->
-<!-- 	<dependency> -->
-<!-- 		<groupId>javax.servlet.jsp</groupId> -->
-<!-- 		<artifactId>jsp-api</artifactId> -->
-<!-- 		<version>${jsp.version}</version> -->
-<!-- 	</dependency> -->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>${servlets.version}</version>
+		<scope>provided</scope>
+	</dependency>
+	<dependency>
+		<groupId>javax.servlet.jsp</groupId>
+		<artifactId>jsp-api</artifactId>
+		<version>${jsp.version}</version>
+		<scope>provided</scope>
+	</dependency>
 
 	</dependencies>
 	<build>
