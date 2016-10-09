@@ -68,7 +68,7 @@ $(document).ready(function(){
 	
 	$("#repeticiones").knob({
 		min:1,
-		max:50,
+		max:100,
 		displayPrevious: true,
 		width:140,
 		height:140,
@@ -82,7 +82,7 @@ $(document).ready(function(){
 	});
 	$("#tiempo").knob({
 		min:1,
-		max:50,
+		max:120,
 		displayPrevious: true,
 		width:140,
 		height:140,
